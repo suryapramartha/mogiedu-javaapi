@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.mitrais.todo.model.Teacher;
+import com.mitrais.todo.service.TeacherService;
  
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -35,6 +38,9 @@ public class AuthRestAPIs {
  
   @Autowired
   PasswordEncoder encoder;
+  
+  @Autowired
+  TeacherService teacherService;
  
   @Autowired
   JwtProvider jwtProvider;
@@ -80,8 +86,8 @@ public class AuthRestAPIs {
         roles.add(adminRole);
  
         break;
-      case "pm":
-        Role pmRole = roleRepository.findByName(RoleName.ROLE_PM)
+      case "teacher":
+        Role pmRole = roleRepository.findByName(RoleName.ROLE_TEACHER)
             .orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
         roles.add(pmRole);
  
@@ -95,6 +101,13 @@ public class AuthRestAPIs {
  
     user.setRoles(roles);
     userRepository.save(user);
+    //Create teacher
+    String firstName = signUpRequest.getName();
+    String username = signUpRequest.getUsername();
+    String email = signUpRequest.getEmail();
+    String pass = encoder.encode(signUpRequest.getPassword());
+    Teacher teacher = new Teacher(firstName, username, email, pass);
+    teacherService.createTeacher(teacher);
  
     return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.OK);
   }
