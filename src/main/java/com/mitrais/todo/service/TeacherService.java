@@ -9,6 +9,7 @@ import com.mitrais.todo.model.Teacher;
 public interface TeacherService {
 	void createTeacher(Teacher teacher);
 	Teacher getTeacherById(int teacherId);
+	Teacher getTeacherByUsername(String username);
 	List<Teacher> getAllTeacher();
 	int deleteByTeacherId(int teacherId);
 }

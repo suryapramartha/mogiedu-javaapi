@@ -15,6 +15,7 @@ import com.mitrais.todo.model.Teacher;
 public interface TeacherRepository extends JpaRepository<Teacher, Integer>{
 
 	Teacher findByTeacherId(int teacherId);
+	Teacher findByUsername(String username);
 	List<Teacher> findAll();
 	
 	@Transactional

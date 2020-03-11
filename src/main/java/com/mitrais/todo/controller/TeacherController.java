@@ -1,6 +1,9 @@
 package com.mitrais.todo.controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,6 +68,20 @@ public class TeacherController {
 	public ResponseEntity<?> getTeacherById(@PathVariable("teacherId") int teacherId) throws Exception {
 		try{
 			Teacher teacher = teacherService.getTeacherById(teacherId);
+			if (teacher == null) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}else {
+				return new ResponseEntity<>(teacher,HttpStatus.OK);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	}
+	@GetMapping("/teacher/username/{username}")
+	public ResponseEntity<?> getTeacherByUsername(@PathVariable("username") String username) throws Exception {
+		try{
+			Teacher teacher = teacherService.getTeacherByUsername(username);
 			if (teacher == null) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}else {

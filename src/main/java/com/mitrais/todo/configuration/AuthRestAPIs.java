@@ -106,7 +106,8 @@ public class AuthRestAPIs {
     String username = signUpRequest.getUsername();
     String email = signUpRequest.getEmail();
     String pass = encoder.encode(signUpRequest.getPassword());
-    Teacher teacher = new Teacher(firstName, username, email, pass);
+    String gender = signUpRequest.getGender();
+    Teacher teacher = new Teacher(firstName, username, email, pass, gender);
     teacherService.createTeacher(teacher);
  
     return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.OK);

@@ -85,22 +85,25 @@ public class Teacher {
 	@Column(name ="rekening_no")
 	private int rekeningNo;
 	
-	public Teacher(String firstName, String lastName,String email,String profilePictureUrl, String status) {
+	@Column(name="bank_name")
+	private String bankName;
+	
+	public Teacher(String firstName, String lastName,String email,String profilePictureUrl) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.profilePictureUrl = profilePictureUrl;
-		this.status = status;
 		this.createDate = new Date();
 	}
 	
 	
 // Create From SignUp Form
-	public Teacher(String firstName, String username, String email, String password) {
+	public Teacher(String firstName, String username, String email, String password, String gender) {
 		this.firstName = firstName;
 		this.username = username;
 		this.email = email;
 		this.password = password;
+		this.gender = gender;
 		this.createDate = new Date();
 		this.status = "ACTIVE";
 	}
@@ -283,4 +286,11 @@ public class Teacher {
 	public void setRekeningNo(int rekeningNo) {
 		this.rekeningNo = rekeningNo;
 	}
+	public String getBankName() {
+		return bankName;
+	}
+	public void setBankName(String bankName) {
+		this.bankName = bankName;
+	}
+	
 }

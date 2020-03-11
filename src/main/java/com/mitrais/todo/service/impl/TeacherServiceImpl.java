@@ -37,4 +37,10 @@ public class TeacherServiceImpl implements TeacherService{
 		return this.teacherRepository.findAll();
 	}
 
+	@Override
+	public Teacher getTeacherByUsername(String username) {
+		return this.teacherRepository.findByUsername(username);
+
+	}
+
 }
