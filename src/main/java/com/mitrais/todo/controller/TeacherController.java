@@ -78,7 +78,7 @@ public class TeacherController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
-	@GetMapping("/teacher/username/{username}")
+	@GetMapping("/teacherByUsername/{username}")
 	public ResponseEntity<?> getTeacherByUsername(@PathVariable("username") String username) throws Exception {
 		try{
 			Teacher teacher = teacherService.getTeacherByUsername(username);

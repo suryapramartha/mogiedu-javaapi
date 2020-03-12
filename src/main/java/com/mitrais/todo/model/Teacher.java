@@ -53,10 +53,10 @@ public class Teacher {
 	private String religion;
 	
 	@Column(name="phone_number_1")
-	private int phoneNumber1;
+	private String phoneNumber1;
 	
 	@Column(name="phone_number_2")
-	private int phoneNumber2;
+	private String phoneNumber2;
 	
 	@Column(name="occupation", nullable = true)
 	private String occupation;
@@ -83,7 +83,7 @@ public class Teacher {
 	private String profilePictureUrl;
 	
 	@Column(name ="rekening_no")
-	private int rekeningNo;
+	private String rekeningNo;
 	
 	@Column(name="bank_name")
 	private String bankName;
@@ -201,19 +201,19 @@ public class Teacher {
 		this.religion = religion;
 	}
 
-	public int getPhoneNumber1() {
+	public String getPhoneNumber1() {
 		return phoneNumber1;
 	}
 
-	public void setPhoneNumber1(int phoneNumber1) {
+	public void setPhoneNumber1(String phoneNumber1) {
 		this.phoneNumber1 = phoneNumber1;
 	}
 
-	public int getPhoneNumber2() {
+	public String getPhoneNumber2() {
 		return phoneNumber2;
 	}
 
-	public void setPhoneNumber2(int phoneNumber2) {
+	public void setPhoneNumber2(String phoneNumber2) {
 		this.phoneNumber2 = phoneNumber2;
 	}
 
@@ -280,10 +280,10 @@ public class Teacher {
 	public void setProfilePictureUrl(String profilePictureUrl) {
 		this.profilePictureUrl = profilePictureUrl;
 	}
-	public int getRekeningNo() {
+	public String getRekeningNo() {
 		return rekeningNo;
 	}
-	public void setRekeningNo(int rekeningNo) {
+	public void setRekeningNo(String rekeningNo) {
 		this.rekeningNo = rekeningNo;
 	}
 	public String getBankName() {

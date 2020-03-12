@@ -17,10 +17,4 @@ public class TodoApplication extends SpringBootServletInitializer  {
 	public static void main(String[] args) {
 		SpringApplication.run(TodoApplication.class, args);
 	}
-	
-	@GetMapping(value = "/test-connection")
-	public String getTestConnection() {
-		return "Connected to mogi backend!";
-	}
-	
 }

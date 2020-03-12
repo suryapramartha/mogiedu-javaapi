@@ -77,13 +77,6 @@ public class TodoController {
 		}
 	}
 	
-	@GetMapping("/hello-world")
-	public ResponseEntity<?> helloWorld() {
-		return ResponseEntity.ok()
-				.body(Collections.singletonMap("message", "Hello from the Backend server "));
-
-	}
-	
 	@GetMapping("/basic-auth")
 	public ResponseEntity<?> basicAuth() {
 		return ResponseEntity.ok().body(Collections.singletonMap("message", "OK"));
