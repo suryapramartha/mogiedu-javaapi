@@ -106,7 +106,7 @@ public class PackageController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
-	@GetMapping("/package-sd/1")
+	@GetMapping("/package-sd/{packageId}")
 	public ResponseEntity<?> getPackageSdById(@PathVariable("packageId") int packageId) throws Exception {
 		try{
 			Package packageObj = packageService.getPackageById(packageId);
