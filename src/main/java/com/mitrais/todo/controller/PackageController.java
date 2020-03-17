@@ -106,4 +106,18 @@ public class PackageController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
+	@GetMapping("/package-sd/1")
+	public ResponseEntity<?> getPackageSdById(@PathVariable("packageId") int packageId) throws Exception {
+		try{
+			Package packageObj = packageService.getPackageById(packageId);
+			if (packageObj == null) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}else {
+				return new ResponseEntity<>(packageObj,HttpStatus.OK);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	}
 }

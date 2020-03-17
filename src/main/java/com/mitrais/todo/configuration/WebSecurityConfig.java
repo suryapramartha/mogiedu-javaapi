@@ -71,7 +71,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         web
             .ignoring()
                 .antMatchers("/resources/**")
-                .antMatchers("/api/promoTop1");
+                .antMatchers("/api/promoTop1")
+                .antMatchers("/api/package-sd/1");
     }
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
