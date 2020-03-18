@@ -9,4 +9,5 @@ public interface CourseService {
 	Course getCourseById(int courseId);
 	List<Course> getAllCourse();
 	int deleteByCourseId(int courseId);
+	List<Course> getCourseByCourseType(String courseType);
 }

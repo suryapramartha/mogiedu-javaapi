@@ -28,8 +28,11 @@ public class Course {
 	@Column(name="course_type")
 	private String courseType;
 	
-	@Column(name="course_price")
-	private int coursePrice;
+	@Column(name="course_price_reg")
+	private int coursePriceReg;
+	
+	@Column(name="course_price_bil")
+	private int coursePriceBil;
 	
 	@Column(name="course_level")
 	private String courseLevel;
@@ -46,11 +49,12 @@ public class Course {
 	@Column(name="created_date")
 	private Date createdDate;
 
-	public Course(String courseName, String courseType, int coursePrice, String courseLevel, String courseGrade,String courseCategory, String status, Date createdDate) {
+	public Course(String courseName, String courseType, int coursePriceReg,int coursePriceBil, String courseLevel, String courseGrade,String courseCategory, String status, Date createdDate) {
 		super();
 		this.courseName = courseName;
 		this.courseType = courseType;
-		this.coursePrice = coursePrice;
+		this.coursePriceReg = coursePriceReg;
+		this.coursePriceBil = coursePriceBil;
 		this.courseLevel = courseLevel;
 		this.courseGrade = courseGrade;
 		this.courseCategory = courseCategory;
@@ -84,14 +88,6 @@ public class Course {
 
 	public void setCourseType(String courseType) {
 		this.courseType = courseType;
-	}
-
-	public int getCoursePrice() {
-		return coursePrice;
-	}
-
-	public void setCoursePrice(int coursePrice) {
-		this.coursePrice = coursePrice;
 	}
 
 	public String getCourseLevel() {
@@ -133,5 +129,22 @@ public class Course {
 	public void setCourseCategory(String courseCategory) {
 		this.courseCategory = courseCategory;
 	}
+
+	public int getCoursePriceReg() {
+		return coursePriceReg;
+	}
+
+	public void setCoursePriceReg(int coursePriceReg) {
+		this.coursePriceReg = coursePriceReg;
+	}
+
+	public int getCoursePriceBil() {
+		return coursePriceBil;
+	}
+
+	public void setCoursePriceBil(int coursePriceBil) {
+		this.coursePriceBil = coursePriceBil;
+	}
+	
 	
 }

@@ -32,17 +32,18 @@ public class CourseController {
 		try {
 			String courseName = course.getCourseName();
 			String courseType = course.getCourseType();
-			int coursePrice = course.getCoursePrice();
+			int coursePriceReg = course.getCoursePriceReg();
+			int coursePriceBil = course.getCoursePriceBil();
 			String courseLevel = course.getCourseLevel();
 			String status = course.getStatus();
 			String courseGrade = course.getCourseGrade();
 			String courseCategory = course.getCourseCategory();
 
-			if (courseName == null || courseType == null || courseLevel == null ||courseCategory == null|| coursePrice == 0 || status == null) {
+			if (courseName == null || courseType == null || courseLevel == null || coursePriceReg == 0 || coursePriceBil == 0 ||status == null) {
 				return ResponseEntity.badRequest()
 						.body(Collections.singletonMap("errorMessage", "data course is invalid"));
 			}
-			Course newCourse = new Course(courseName, courseType, coursePrice, courseLevel, courseGrade,courseCategory, status, new Date());
+			Course newCourse = new Course(courseName, courseType, coursePriceReg, coursePriceBil, courseLevel, courseGrade,courseCategory, status, new Date());
 			courseService.createCourse(newCourse);
 			return new ResponseEntity<>(newCourse,HttpStatus.CREATED);
 		}catch(Exception e) {
@@ -103,6 +104,20 @@ public class CourseController {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}else {
 				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	}
+	@GetMapping("/courseByType/{courseType}")
+	public ResponseEntity<List<?>> getAllCourseByType(@PathVariable("courseType") String courseType) throws Exception {
+		try{
+			List<Course> course = courseService.getCourseByCourseType(courseType);
+			if (course == null) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}else {
+				return new ResponseEntity<>(course,HttpStatus.OK);
 			}
 		}catch(Exception e) {
 			e.printStackTrace();

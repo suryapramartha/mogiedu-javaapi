@@ -35,4 +35,9 @@ public class CourseServiceImpl implements CourseService{
 		return this.courseRepository.deleteCourseByCourseId(courseId);
 	}
 
+	@Override
+	public List<Course> getCourseByCourseType(String courseType) {
+		return this.courseRepository.findAllByCourseType(courseType);
+	}
+
 }
