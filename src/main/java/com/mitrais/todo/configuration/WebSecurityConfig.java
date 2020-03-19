@@ -76,7 +76,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/package-sd/**")
                 .antMatchers("/api/courseByType/**")
                 .antMatchers("/api/teachers")
-                .antMatchers("/api/teacher/**");
+                .antMatchers("/api/teacher/**")
+                .antMatchers("/api/teacherWithLimit/**");
     }
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {

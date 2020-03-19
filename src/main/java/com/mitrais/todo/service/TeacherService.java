@@ -12,4 +12,6 @@ public interface TeacherService {
 	Teacher getTeacherByUsername(String username);
 	List<Teacher> getAllTeacher();
 	int deleteByTeacherId(int teacherId);
+	List<Teacher> getTeacherWithLimit(int limit);
+
 }

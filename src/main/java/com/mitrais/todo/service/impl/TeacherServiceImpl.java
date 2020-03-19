@@ -43,4 +43,9 @@ public class TeacherServiceImpl implements TeacherService{
 
 	}
 
+	@Override
+	public List<Teacher> getTeacherWithLimit(int limit) {
+		return this.teacherRepository.getTeacherWithLimit(limit);
+	}
+
 }

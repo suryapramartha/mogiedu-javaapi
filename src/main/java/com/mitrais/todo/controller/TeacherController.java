@@ -106,6 +106,20 @@ public class TeacherController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
+	@GetMapping("/teacherWithLimit/{limit}")
+	public ResponseEntity<List<?>> getAllTeacherForLandingPage(@PathVariable("limit") int limit) throws Exception {
+		try{
+			List<Teacher> teacher = teacherService.getTeacherWithLimit(limit);
+			if (teacher == null) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}else {
+				return new ResponseEntity<>(teacher,HttpStatus.OK);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	}
 	
 	@DeleteMapping("/teacher/{teacherId}")
 	public ResponseEntity<?> deleteTodoById(@PathVariable("teacherId") int teacherId) throws Exception {
